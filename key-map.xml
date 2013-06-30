@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- It wouldn't be very hard to have a nice default presentation of the settings for veiwing in the browser.
+But I can't be bothered to write the following xsl right now. -->
+<?xml-stylesheet type="text/xsl" href="key-map.xsl"?>
+<key-map>
+	<keys-for-action>
+		<action>quick save</action>
+		<key>F6</key>
+	</keys-for-action>
+	<keys-for-action>
+		<action>move forward</action>
+		<key>up arrow</key>
+		<key>w</key>
+	</keys-for-action>
+	<keys-for-action>
+		<action>move backward</action>
+		<key>down arrow</key>
+		<key>s</key>
+	</keys-for-action>
+	<keys-for-action>
+		<action>move left</action>
+		<key>left arrow</key>
+		<key>a</key>
+	</keys-for-action>
+	<keys-for-action>
+		<action>move right</action>
+		<key>right arrow</key>
+		<key>d</key>
+	</keys-for-action>
+</key-map>
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="key">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:pattern value=".{1}|(up|down|left|right) arrow|F[1-9]|F1[0-2]"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="action">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<!-- movement -->
+				<xs:enumeration value="move forward"/>
+				<xs:enumeration value="move backward"/>
+				<xs:enumeration value="move left"/>
+				<xs:enumeration value="move right"/>
+				<xs:enumeration value="jump"/>
+				<xs:enumeration value="crouch"/>
+				<xs:enumeration value="sneak"/>
+				<xs:enumeration value="walk"/>
+				<xs:enumeration value="sprint"/>
+				<xs:enumeration value="always sprint"/>
+				<xs:enumeration value="specialized movement"/> <!-- swim up, climb, shimmy -->
+				<xs:enumeration value="pull upward"/>
+				<xs:enumeration value="drop downward"/>
+				<!-- manipulation -->
+				<xs:enumeration value="use"/>
+				<xs:enumeration value="confirm"/>
+				<xs:enumeration value="evade"/> <!-- dodge, roll, backstep -->
+				<xs:enumeration value="block"/>
+				<xs:enumeration value="primary attack"/>
+				<xs:enumeration value="secondary attack"/>
+				<xs:enumeration value="attack refresh"/> <!-- reload weapon -->
+				<xs:enumeration value="attack toggle"/> <!-- sheathe, dual wield, gun mode -->
+				<xs:enumeration value="primary ability"/>
+				<xs:enumeration value="secondary ability"/>
+				<xs:enumeration value="ability refresh"/> <!-- ? -->
+				<xs:enumeration value="ability toggle"/> <!-- switch spell, tool mode -->
+				<xs:enumeration value="use healing item"/> <!-- health potion, med kit -->
+				<xs:enumeration value="use ability recharging item"/>  <!-- mana potion, syringe -->
+				<xs:enumeration value="light source"/>
+				<xs:enumeration value="guesture"/>
+				<!-- game state -->
+				<xs:enumeration value="primary character status"/> <!-- stats, experience, level -->
+				<xs:enumeration value="secondary character status"/> <!-- skill tree, reputation -->
+				<xs:enumeration value="primary world status"/> <!-- map -->
+				<xs:enumeration value="secondary world status"/> <!-- quests, journal -->
+				<xs:enumeration value="primary abilities menu"/>
+				<xs:enumeration value="secondary abilities menu"/>
+				<xs:enumeration value="inventory, equiped"/>
+				<xs:enumeration value="inventory, mass storage"/>
+				<xs:enumeration value="achievements"/>
+				<xs:enumeration value="menu"/>
+				<xs:enumeration value="primary menu function"/>
+				<xs:enumeration value="secondary menu function"/>
+				<!-- saving -->
+				<xs:enumeration value="quick save"/>
+				<xs:enumeration value="save"/>
+				<xs:enumeration value="quick load"/>
+				<xs:enumeration value="load"/>
+				<xs:enumeration value="pause"/>
+				<!-- weapon hotkeys -->
+				<xs:enumeration value="shortcut 1"/>
+				<xs:enumeration value="shortcut 2"/>
+				<xs:enumeration value="shortcut 3"/>
+				<xs:enumeration value="shortcut 4"/>
+				<xs:enumeration value="shortcut 5"/>
+				<xs:enumeration value="shortcut 6"/>
+				<xs:enumeration value="shortcut 7"/>
+				<xs:enumeration value="shortcut 8"/>
+				<xs:enumeration value="shortcut 9"/>
+				<xs:enumeration value="shortcut 10"/>
+				<xs:enumeration value="next item"/>
+				<xs:enumeration value="previous item"/>
+				<xs:enumeration value="last used item"/>
+				<!-- mouse -->
+				<xs:enumeration value="mouse sensitivity, vertical"/>
+				<xs:enumeration value="mouse sensitivity, horizontal"/>
+				<xs:enumeration value="mouse acceleration"/>
+				<xs:enumeration value="mouse smoothing"/>
+				<xs:enumeration value="invert y"/> <!-- invert look-->
+				<xs:enumeration value="invert x"/> <!-- invert rotation -->
+				<!-- camera -->
+				<xs:enumeration value="look up"/>
+				<xs:enumeration value="look down"/>
+				<xs:enumeration value="look left"/>
+				<xs:enumeration value="look right"/>
+				<xs:enumeration value="lean left"/>
+				<xs:enumeration value="lean right"/>
+				<xs:enumeration value="zoom"/>
+				<xs:enumeration value="auto-aim"/>
+				<xs:enumeration value="auto-aim strength"/>
+				<xs:enumeration value="aim assist"/>
+				<xs:enumeration value="aim-assit strength"/>
+				<xs:enumeration value="target lock / focus"/>
+				<xs:enumeration value="primary camera control"/>
+				<xs:enumeration value="secondary camera control"/>
+				<xs:enumeration value="center camera"/>
+				<!-- game-wide preferences -->
+				<xs:enumeration value="difficulty"/>
+				<xs:enumeration value="vibration"/>
+				<xs:enumeration value="brightness"/>
+				<xs:enumeration value="subtitles"/> <!-- dialog only, all sounds, none -->
+				<xs:enumeration value="subtitle speed"/>
+				<xs:enumeration value="language filter"/>
+				<xs:enumeration value="violence level"/> <!-- gore filter -->
+				<xs:enumeration value="colorblind mode"/>
+				<xs:enumeration value="languge"/>
+				<xs:enumeration value="developer console"/>
+				<!-- sound -->
+				<xs:enumeration value="sound effects volume"/>
+				<xs:enumeration value="music volume"/>
+				<xs:enumeration value="dialog volume"/>
+				<xs:enumeration value="sound quality"/>
+				<xs:enumeration value="speaker layout"/>
+				<!-- video -->
+				<xs:enumeration value="fullscreen"/>
+				<xs:enumeration value="resolution"/>
+				<xs:enumeration value="world detail level"/>
+				<xs:enumeration value="smooth scaling"/>
+				<xs:enumeration value="aspect ratio"/> <!-- field of view -->
+				<xs:enumeration value="vertical sync"/>
+				<xs:enumeration value="bloom"/>
+				<xs:enumeration value="frame limit"/>
+				<xs:enumeration value="take screenshot"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="keys-for-action">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="action" minOccurs="1" maxOccurs="1" />	
+				<xs:element ref="key" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="key-map">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="keys-for-action" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
+
